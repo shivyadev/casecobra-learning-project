@@ -30,7 +30,10 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, ChevronsUpDown } from "lucide-react";
 import { BASE_PRICE } from "@/config/products";
 import { useUploadThing } from "@/lib/uploadthing";
-import { toast } from "@/components/ui/use-toast";
+import { useToast } from "@/components/ui/use-toast";
+import { useMutation } from "@tanstack/react-query";
+import { saveConfig as _saveConfig, SaveConfigArgs } from "./actions";
+import { useRouter } from "next/navigation";
 
 interface DesignConfiguratorProps {
   configId: string;
@@ -43,6 +46,26 @@ const DesignConfigurator = ({
   imageUrl,
   imageDimensions,
 }: DesignConfiguratorProps) => {
+  const { toast } = useToast();
+  const router = useRouter();
+
+  const { mutate: saveConfig } = useMutation({
+    mutationKey: ["save-config"],
+    mutationFn: async (args: SaveConfigArgs) => {
+      await Promise.all([_saveConfig(args), saveConfiguration()]);
+    },
+    onError: () => {
+      toast({
+        title: "Something went wrong",
+        description: "There was an error on our end. Please try again.",
+        variant: "destructive",
+      });
+    },
+    onSuccess: () => {
+      router.push(`/configure/preview?id=${configId}`);
+    },
+  });
+
   const [options, setOptions] = useState<{
     color: (typeof COLORS)[number];
     model: (typeof MODELS.options)[number];
@@ -78,6 +101,7 @@ const DesignConfigurator = ({
         width,
         height,
       } = phoneCaseRef.current!.getBoundingClientRect();
+
       const { left: containerLeft, top: containerTop } =
         containerRef.current!.getBoundingClientRect();
 
@@ -112,7 +136,7 @@ const DesignConfigurator = ({
         type: "image/png",
       });
 
-      startUpload([file], { configId });
+      await startUpload([file], { configId });
     } catch (err) {
       toast({
         title: "Something went wrong",
@@ -372,7 +396,15 @@ const DesignConfigurator = ({
                 )}
               </p>
               <Button
-                onClick={() => saveConfiguration()}
+                onClick={() =>
+                  saveConfig({
+                    configId,
+                    color: options.color.value,
+                    finish: options.finish.value,
+                    material: options.materials.value,
+                    model: options.model.value,
+                  })
+                }
                 size="sm"
                 className="w-full"
               >

@@ -24,7 +24,7 @@ enum PhoneModel {
 }
 
 enum CaseMaterial {
-  silicon
+  silicone
   polycarbonate
 }
 
