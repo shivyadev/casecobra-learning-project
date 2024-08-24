@@ -11,13 +11,13 @@ export const getAuthStatus = async () => {
     throw new Error("Invalid user data");
   }
 
-  const exisitingUser = await db.user.findFirst({
+  const existingUser = await db.user.findFirst({
     where: {
       id: user.id,
     },
   });
 
-  if (!exisitingUser) {
+  if (!existingUser) {
     await db.user.create({
       data: {
         id: user.id,

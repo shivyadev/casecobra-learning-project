@@ -79,3 +79,26 @@ export const FINISHES = {
     },
   ],
 } as const;
+
+export const COUNTRIES: string[] = [
+  "United States",
+  "China",
+  "Germany",
+  "India",
+  "Japan",
+  "United Kingdom",
+  "France",
+  "Russia",
+  "Brazil",
+  "Canada",
+  "South Korea",
+  "Australia",
+  "Italy",
+  "Saudi Arabia",
+  "Spain",
+  "Netherlands",
+  "Mexico",
+  "Turkey",
+  "Switzerland",
+  "Indonesia",
+] as const;

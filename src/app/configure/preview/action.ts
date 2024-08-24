@@ -54,6 +54,6 @@ export const createCheckoutSession = async ({
   }
 
   return {
-    url: `${process.env.NEXT_PUBLIC_SERVER_URL}/thank-you?id=${order.id}`,
+    url: `/checkout?id=${order.id}`,
   };
 };
