@@ -10,3 +10,14 @@ export const PRODUCT_PRICES = {
 } as const;
 
 export const BASE_PRICE = 14_00;
+
+export const SHIPPING_COST = {
+  "Free Shipping": {
+    desc: "5-7 business days",
+    cost: 0,
+  },
+  "Next day air": {
+    desc: "At most 1 business days",
+    cost: 15,
+  },
+} as const;

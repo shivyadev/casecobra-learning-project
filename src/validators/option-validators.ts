@@ -80,25 +80,127 @@ export const FINISHES = {
   ],
 } as const;
 
-export const COUNTRIES: string[] = [
-  "United States",
-  "China",
-  "Germany",
-  "India",
-  "Japan",
-  "United Kingdom",
-  "France",
-  "Russia",
-  "Brazil",
-  "Canada",
-  "South Korea",
-  "Australia",
-  "Italy",
-  "Saudi Arabia",
-  "Spain",
-  "Netherlands",
-  "Mexico",
-  "Turkey",
-  "Switzerland",
-  "Indonesia",
+export const COUNTRIES = [
+  {
+    country: "United States",
+    states: ["California", "Texas", "New York", "Florida", "Illinois"],
+  },
+  {
+    country: "China",
+    states: ["Guangdong", "Shandong", "Henan", "Sichuan", "Jiangsu"],
+  },
+  {
+    country: "Germany",
+    states: [
+      "Bavaria",
+      "North Rhine-Westphalia",
+      "Baden-Württemberg",
+      "Lower Saxony",
+      "Hesse",
+    ],
+  },
+  {
+    country: "India",
+    states: [
+      "Maharashtra",
+      "Uttar Pradesh",
+      "West Bengal",
+      "Karnataka",
+      "Tamil Nadu",
+    ],
+  },
+  {
+    country: "Japan",
+    states: ["Tokyo", "Osaka", "Kanagawa", "Hokkaido", "Fukuoka"],
+  },
+  {
+    country: "United Kingdom",
+    states: ["England", "Scotland", "Wales", "Northern Ireland"],
+  },
+  {
+    country: "France",
+    states: [
+      "Île-de-France",
+      "Provence-Alpes-Côte d'Azur",
+      "Auvergne-Rhône-Alpes",
+      "Nouvelle-Aquitaine",
+      "Occitanie",
+    ],
+  },
+  {
+    country: "Russia",
+    states: [
+      "Moscow Oblast",
+      "Saint Petersburg",
+      "Sverdlovsk Oblast",
+      "Krasnodar Krai",
+      "Tatarstan",
+    ],
+  },
+  {
+    country: "Brazil",
+    states: ["São Paulo", "Rio de Janeiro", "Minas Gerais", "Bahia", "Paraná"],
+  },
+  {
+    country: "Canada",
+    states: ["Ontario", "Quebec", "British Columbia", "Alberta", "Manitoba"],
+  },
+  {
+    country: "South Korea",
+    states: ["Seoul", "Gyeonggi-do", "Busan", "Incheon", "Daegu"],
+  },
+  {
+    country: "Australia",
+    states: [
+      "New South Wales",
+      "Victoria",
+      "Queensland",
+      "Western Australia",
+      "South Australia",
+    ],
+  },
+  {
+    country: "Italy",
+    states: ["Lombardy", "Lazio", "Campania", "Sicily", "Veneto"],
+  },
+  {
+    country: "Saudi Arabia",
+    states: ["Riyadh", "Makkah", "Medina", "Eastern Province", "Asir"],
+  },
+  {
+    country: "Spain",
+    states: [
+      "Andalusia",
+      "Catalonia",
+      "Madrid",
+      "Valencian Community",
+      "Galicia",
+    ],
+  },
+  {
+    country: "Netherlands",
+    states: [
+      "North Holland",
+      "South Holland",
+      "Utrecht",
+      "Gelderland",
+      "North Brabant",
+    ],
+  },
+  {
+    country: "Mexico",
+    states: ["Mexico City", "Jalisco", "Nuevo León", "Puebla", "Yucatán"],
+  },
+  {
+    country: "Turkey",
+    states: ["Istanbul", "Ankara", "Izmir", "Bursa", "Antalya"],
+  },
+  {
+    country: "Switzerland",
+    states: ["Zurich", "Geneva", "Bern", "Vaud", "Aargau"],
+  },
+  {
+    country: "Indonesia",
+    states: ["Jakarta", "West Java", "East Java", "Central Java", "Bali"],
+  },
 ] as const;
