@@ -89,6 +89,8 @@ const Checkout = ({
     setAmount(shippingCost);
   };
 
+  const [email, setEmail] = useState<string>("");
+
   const [shippingAddress, setShippingAddress] = useState<ShippingAddress>({
     id: order.id,
     name: "",
@@ -120,7 +122,7 @@ const Checkout = ({
   });
 
   const handleClick = () => {
-    updateOrderStatus({ shippingAddress, orderId: order.id });
+    updateOrderStatus({ email, shippingAddress, orderId: order.id });
   };
 
   return (
@@ -204,6 +206,8 @@ const Checkout = ({
           <input
             id="mail"
             type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="mt-2 px-4 h-11 font-sans border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-zinc-950"
           />
         </div>
